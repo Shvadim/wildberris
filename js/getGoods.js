@@ -36,8 +36,8 @@ const getGoods = () => {
           ? data.filter((item) => item[category] === value)
           : data;
         localStorage.setItem("goods", JSON.stringify(array));
-        console.log('1',window.location.pathname);
-        if (window.location.pathname !== "goods.html") {
+
+        if (!window.location.pathname.includes("goods.html")) {
           window.location.href = "goods.html";
         } else {
           renderGoods(array);
@@ -53,10 +53,10 @@ const getGoods = () => {
       getData(linkValue, category);
     });
   });
-  console.log('2',window.location.pathname);
+
   if (
     localStorage.getItem("goods") &&
-    window.location.pathname === "goods.html"
+    window.location.pathname.includes("goods.html")
   ) {
     renderGoods(JSON.parse(localStorage.getItem("goods")));
   }
