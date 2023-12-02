@@ -1,8 +1,6 @@
 const search = function () {
   const inputText = document.querySelector(".search-block > input");
   const btnSearch = document.querySelector(".search-block > button");
-  // Получение ссылки View All
-  const linkViewAll = document.querySelector(".more");
 
   // Функция отрисовки товаров (с фильтрацией)
   const renderGoods = (goods) => {
@@ -55,15 +53,6 @@ const search = function () {
     });
   } catch (e) {
     console.error(e.message);
-  }
-
-  try {
-    linkViewAll.addEventListener("click", (event) => {
-      event.preventDefault();
-      getData("");
-    });
-  } catch (e) {
-    //console.error(e.message);
   }
 };
 

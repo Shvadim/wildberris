@@ -1,5 +1,7 @@
 const getGoods = () => {
   const links = document.querySelectorAll(".navigation-link");
+  // Получение ссылки View All
+  const linkViewAll = document.querySelector(".more");
 
   // Функция отрисовки товаров (с фильтрацией)
   const renderGoods = (goods) => {
@@ -59,6 +61,13 @@ const getGoods = () => {
     window.location.pathname.includes("goods.html")
   ) {
     renderGoods(JSON.parse(localStorage.getItem("goods")));
+  }
+
+  if (linkViewAll) {
+    linkViewAll.addEventListener("click", (event) => {
+      event.preventDefault();
+      getData();
+    });
   }
 
   /* //Работа с localStorage
